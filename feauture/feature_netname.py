@@ -26,8 +26,8 @@ def get_whois_info(domain):
             print(f"Error looking up RDAP for {ip_address}: {e}")
     return None
 
-normal_netnames_df = pd.read_csv('path/to/normal_netnames.csv') #나중에 추가해야함...!
-NORMAL_NETNAMES = normal_netnames_df['netname'].tolist()
+#normal_netnames_df = pd.read_csv('path/to/normal_netnames.csv') #나중에 추가해야함...!
+#NORMAL_NETNAMES = normal_netnames_df['netname'].tolist()
 #netname 가져오기
 def get_netname(url):
     parts = urlparse(url)
@@ -57,9 +57,9 @@ def check_netname(netname): #악성url의 netname과 같은지 비교
 def get_feature_netname(dataframe):
     try:
         dataframe['netname'] = dataframe['url'].apply(get_netname)
-        dataframe.to_csv('C:/URL/abnormal_dataset/netname/netname.csv', index=False) #파일 이름 계속 바꿔서...?
-        dataframe['netname'] = dataframe['netname'].fillna('')
-        dataframe['netname']=dataframe['netname'].apply(check_netname)
+        #dataframe.to_csv('C:/URL/abnormal_dataset/netname/netname.csv', index=False) #파일 이름 계속 바꿔서...?
+        #dataframe['netname'] = dataframe['netname'].fillna('')
+        #dataframe['netname']=dataframe['netname'].apply(check_netname)
     except Exception as e:
         print(f"Error processing URLs: {e}")
 
