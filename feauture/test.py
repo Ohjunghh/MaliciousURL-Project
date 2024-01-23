@@ -1,4 +1,5 @@
 import pandas as pd
+import feature_day
 import feature_https
 import feature_url_shortening
 import feature_ttl
@@ -11,7 +12,7 @@ import feature_length
 #파이썬 경로 C:\Users\오정현\AppData\Local\Programs\Python\Python310\Scripts
 csv_file_path = 'C:/URL/abnormal_dataset/URLhaus+openphish_0111.csv' 
 df = pd.read_csv(csv_file_path, header=None, names=['url'])
-
+feature_day.get_feature_day(df)
 feature_netname.get_feature_netname(df)#now-create	now-update	end-now	
 feature_netname.get_feature_netname(df)#netname
 feature_ttl.get_feature_ttl(df)#ttl
