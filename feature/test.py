@@ -10,8 +10,13 @@ import feature_netname
 import feature_length
 
 #파이썬 경로 C:\Users\오정현\AppData\Local\Programs\Python\Python310\Scripts
+<<<<<<< HEAD
 csv_file_path = '"C:\Coding\python\ou\GRProject_git\MaliciousURL-Project\kaggle_bad.csv"' 
 df = pd.read_csv(csv_file_path, header=None, names=['url'])
+=======
+csv_file_path = 'C:/User/seyeo/OneDrive/바탕 화면/졸프/kaggle_bad.csv' 
+df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(10)
+>>>>>>> e342d6b44db36ce1a43e5834caec9b4930df4228
 
 feature_day.get_feature_day(df)#now-create	now-update	end-now
 feature_netname.get_feature_netname(df)#netname
@@ -25,4 +30,4 @@ feature_https.get_feature_https(df)#https
 feature_file_extension.get_feature_file_extension(df)#file_extension
 feature_url_shortening.get_feature_url_shortening(df)#url_shortening
 
-#df.to_csv('C:/URL/after_data processing/test.csv', index=False)
+df.to_csv('C:/User/seyeo/OneDrive/바탕 화면/졸프/test.csv', index=False)
