@@ -2,6 +2,7 @@ import pandas as pd
 import feature_day
 import feature_https
 import feature_url_shortening
+import feature_day
 import feature_ttl
 import feature_ratio
 import feature_count_special_character
@@ -12,8 +13,13 @@ import feature_length
 #파이썬 경로 C:\Users\오정현\AppData\Local\Programs\Python\Python310\Scripts
 csv_file_path = 'C:/URL/abnormal_dataset/URLhaus+openphish_0111.csv' 
 df = pd.read_csv(csv_file_path, header=None, names=['url'])
+<<<<<<< HEAD:feauture/test.py
 feature_day.get_feature_day(df)
 feature_netname.get_feature_netname(df)#now-create	now-update	end-now	
+=======
+
+feature_day.get_feature_day(df)#now-create	now-update	end-now
+>>>>>>> d5798e85bf04b6d624ba4827d82c6d8d36851cc7:feature/test.py
 feature_netname.get_feature_netname(df)#netname
 feature_ttl.get_feature_ttl(df)#ttl
 feature_length.get_feature_length(df)#len_domain,len_path,len_parameter,len_tld
@@ -24,6 +30,5 @@ feature_ratio.get_feature_consonant_vowel(df)
 feature_https.get_feature_https(df)#https
 feature_file_extension.get_feature_file_extension(df)#file_extension
 feature_url_shortening.get_feature_url_shortening(df)#url_shortening
-
 
 #df.to_csv('C:/URL/after_data processing/test.csv', index=False)
