@@ -11,8 +11,10 @@ import feature_netname
 import feature_length
 
 #파이썬 경로 C:\Users\오정현\AppData\Local\Programs\Python\Python310\Scripts
+
 csv_file_path = 'C:/Users/오정현/OneDrive/바탕 화면/kaggle_bad.csv'#'C:/URL/abnormal_dataset/URLhaus+openphish_0111.csv' 
 df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)
+
 
 feature_day.get_feature_day(df)#now-create	now-update	end-now
 feature_netname.get_feature_netname(df)#netname
