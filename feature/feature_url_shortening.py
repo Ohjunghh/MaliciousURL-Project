@@ -19,11 +19,3 @@ def check_extension(url):
 def get_feature_url_shortening(dataframe):
     # 해당 열에 대해 check_extension 함수를 적용하여 결과를 새로운 열에 저장
     dataframe['url_shortening'] = dataframe['url'].apply(check_extension)
-
-"""
-# 예시 사용:
-csv_file_path = 'C:/URL/abnormal/URLhaus+openphish_0111.csv' 
-df = pd.read_csv(csv_file_path, header=None, names=['url'])
-get_feature_url_shortening(df)
-df.to_csv('C:/URL/abnormal/shortening.csv', index=False)
-"""
