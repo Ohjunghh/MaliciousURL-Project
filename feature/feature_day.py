@@ -35,7 +35,7 @@ def get_day(url):
                     expiration = expiration[0] if isinstance(expiration, list) else expiration
                     
                     
-                    nowdate = datetime.date(2024,1,23)
+                    nowdate = datetime(2024,1,23)
                     # timedelta 객체를 사용하여 날짜 차이 계산
                     """
                     Creation_day = (nowdate - creation).days if isinstance(creation, datetime) else (nowdate - creation[0]).days
@@ -78,4 +78,7 @@ def get_feature_day(dataframe):
 #get_feature_day(df)
 #print(df)
 #df.to_csv('C:/URL/abnormal_dataset/URLhaus+openphish_url_0111_day', index=False)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 52854ee76eb8c7a0581f840bf16226eb35d7d33f

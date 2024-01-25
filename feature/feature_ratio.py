@@ -46,7 +46,7 @@ def get_feature_uppercase_ratio(dataframe):
     dataframe['uppercase'] = dataframe['url'].apply(calculate_uppercase_ratio)
 
 def get_feature_digit_ratio(dataframe):
-    dataframe['consonant_vowel'] = dataframe['url'].apply(calculate_digit_ratio)
+    dataframe['digit_ratio'] = dataframe['url'].apply(calculate_digit_ratio)
 
 def get_feature_consonant_vowel(dataframe):
     dataframe['consonant_vowel'] = dataframe['url'].apply(calculate_consonant_vowel_ratio)
