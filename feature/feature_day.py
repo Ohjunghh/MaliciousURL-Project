@@ -71,9 +71,11 @@ def get_feature_day(dataframe):
     except (Exception, pd.errors.EmptyDataError, pd.errors.ParserError) as e:
         print(f"Error processing URLs: {e}")
 
+
 # 예시 사용법 C:\URL\abnormal_dataset\download
-csv_file_path = 'C:/URL/abnormal_dataset/download/URLhaus+openphish_url_0111.csv'#'C:/URL/abnormal_dataset/download/URLhaus+openphish_url_0111.csv' 
-df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)        
-get_feature_day(df)
-print(df)
+#csv_file_path = 'C:/URL/abnormal_dataset/download/URLhaus+openphish_url_0111.csv'#'C:/URL/abnormal_dataset/download/URLhaus+openphish_url_0111.csv' 
+#df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)        
+#get_feature_day(df)
+#print(df)
 #df.to_csv('C:/URL/abnormal_dataset/URLhaus+openphish_url_0111_day', index=False)
+
