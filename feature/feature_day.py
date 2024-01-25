@@ -39,6 +39,7 @@ def get_day(url):
                     Update_day = (nowdate - update).days 
                     Expiration_day = (expiration - nowdate).days 
                     Expiration_Creation_day = (expiration - creation).days 
+
                     
                     return Creation_day, Update_day, Expiration_day, Expiration_Creation_day
                    
@@ -54,4 +55,4 @@ def get_feature_day(dataframe):
         dataframe[['Creation_day', 'Update_day', 'Expiration_day', 'Expiration_Creation_day']] = dataframe['url'].apply(get_day).apply(pd.Series)
     except (Exception, pd.errors.EmptyDataError, pd.errors.ParserError) as e:
         print(f"Error processing URLs: {e}")
-
+        
