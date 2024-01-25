@@ -13,13 +13,3 @@ def count_special_characters(url):
         if char in special_characters:
             special_characters[char] += 1
     return special_characters
-"""
-# CSV 파일 경로
-csv_file_path = 'C:/URL/abnormal/openphish_0110-0111.csv'  # 경로만 바꿔서하면 됨
-# CSV 파일 읽기
-df = pd.read_csv(csv_file_path,header=None, names=['url']) 
-#함수사용
-get_feature_count(df)
-# 결과를 csv 파일로 저장
-df.to_csv('C:/URL/abnormal/real5_end.csv', index=False)
-"""
