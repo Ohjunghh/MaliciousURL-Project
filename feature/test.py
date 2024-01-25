@@ -12,7 +12,7 @@ import feature_length
 
 #파이썬 경로 C:\Users\오정현\AppData\Local\Programs\Python\Python310\Scripts
 
-csv_file_path = 'C:/Users/오정현/OneDrive/바탕 화면/kaggle_bad.csv'#'C:/URL/abnormal_dataset/URLhaus+openphish_0111.csv' 
+csv_file_path = 'C:/MaliciousURL-Project/kaggle_bad.csv'
 df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)
 
 
@@ -28,4 +28,4 @@ feature_https.get_feature_https(df)#https
 feature_file_extension.get_feature_file_extension(df)#file_extension
 feature_url_shortening.get_feature_url_shortening(df)#url_shortening
 
-df.to_csv('C:/Users/오정현/OneDrive/바탕 화면/kaggle_bad_test.csv', index=False)
+df.to_csv('C:/MaliciousURL-Project/kaggle_bad_feature.csv', index=False)

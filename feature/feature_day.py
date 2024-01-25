@@ -35,7 +35,7 @@ def get_day(url):
                     expiration = expiration[0] if isinstance(expiration, list) else expiration
                     
                     
-                    nowdate = datetime.date(2024,1,23)
+                    nowdate = datetime(2024,1,23)
                     # timedelta 객체를 사용하여 날짜 차이 계산
                     """
                     Creation_day = (nowdate - creation).days if isinstance(creation, datetime) else (nowdate - creation[0]).days
