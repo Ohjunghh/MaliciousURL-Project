@@ -42,8 +42,9 @@ def get_day(url):
                     Update_day = (nowdate - update).days if isinstance(update, datetime) else (nowdate - update[0]).days
                     Expiration_day = (expiration - nowdate).days if isinstance(expiration, datetime) else (expiration[0] - nowdate).days
                     Expiration_Creation_day = (expiration - creation).days if isinstance(expiration, datetime) and isinstance(creation, datetime) else (
-                            expiration[0] - creation[0]).days
-                   """
+                        expiration[0] - creation[0]).days
+                    """
+
                     Creation_day = (nowdate - creation).days #f isinstance(creation, datetime) else (nowdate - creation).days
                     Update_day = (nowdate - update).days #f isinstance(update, datetime) else (nowdate - update).days
                     Expiration_day = (expiration - nowdate).days #f isinstance(expiration, datetime) else (expiration - nowdate).days
@@ -70,10 +71,11 @@ def get_feature_day(dataframe):
         dataframe[['Creation_day', 'Update_day', 'Expiration_day', 'Expiration_Creation_day']] = dataframe['url'].apply(get_day).apply(pd.Series)
     except (Exception, pd.errors.EmptyDataError, pd.errors.ParserError) as e:
         print(f"Error processing URLs: {e}")
+        
 
-# 예시 사용법 C:\URL\abnormal_dataset\download
-csv_file_path = 'C:/URL/abnormal_dataset/download/URLhaus+openphish_url_0111.csv'#'C:/URL/abnormal_dataset/download/URLhaus+openphish_url_0111.csv' 
-df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)        
-get_feature_day(df)
-print(df)
+#예시 사용법 C:\URL\abnormal_dataset\download
+#csv_file_path = 'C:/URL/abnormal_dataset/download/URLhaus+openphish_url_0111.csv'#'C:/URL/abnormal_dataset/download/URLhaus+openphish_url_0111.csv' 
+#df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)        
+#get_feature_day(df)
+#print(df)
 #df.to_csv('C:/URL/abnormal_dataset/URLhaus+openphish_url_0111_day', index=False)
