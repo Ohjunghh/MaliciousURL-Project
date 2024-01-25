@@ -30,3 +30,4 @@ feature_url_shortening.get_feature_url_shortening(df)  # url_shortening
 
 df.to_csv('C:/MaliciousURL-Project/kaggle_bad_feature.csv', index=False)
 
+#test 
