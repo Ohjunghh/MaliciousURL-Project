@@ -62,10 +62,3 @@ def get_feature_netname(dataframe):
         #dataframe['netname']=dataframe['netname'].apply(check_netname)
     except Exception as e:
         print(f"Error processing URLs: {e}")
-
-"""
-csv_file_path = 'C:/URL/abnormal_dataset/netname/URLhaus+openphish_url_0111_netname.csv' #'C:/URL/normal_dataset/success/example10.csv' 
-df = pd.read_csv(csv_file_path)#, header=None)#, names=['url'])
-get_feature_netname(df)
-df.to_csv('C:/URL/abnormal_dataset/netname/netnamefeature.csv', index=False)
-"""

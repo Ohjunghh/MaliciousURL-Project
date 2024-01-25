@@ -10,7 +10,7 @@ import feature_file_extension
 import feature_netname
 import feature_length
 
-#파이썬 경로 C:\Users\오정현\AppData\Local\Programs\Python\Python310\Scripts
+
 csv_file_path = 'C:/MaliciousURL-Project/kaggle_bad.csv'
 df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)
 

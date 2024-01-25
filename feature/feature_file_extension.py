@@ -11,10 +11,3 @@ def get_feature_file_extension(dataframe):
     # 해당 열에 대해 check_extension 함수를 적용하여 결과를 새로운 열에 저장
     dataframe["file_extension"] = dataframe['url'].apply(check_extension)
 
-"""
-# 예시 사용:
-csv_file_path = 'C:/URL/abnormal/openphish_0110-0111.csv' 
-df = pd.read_csv(csv_file_path, header=None, names=['url'])
-get_feature_file_extension(df)
-df.to_csv('C:/URL/abnormal/extensionexamplereal.csv', index=False)
-"""
