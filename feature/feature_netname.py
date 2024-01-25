@@ -38,8 +38,8 @@ def get_netname(url):
         nets_info = whois_info.get('network', {})
         name = nets_info.get('name', '')
         if name:
-            if name in NORMAL_NETNAMES:
-                return None  # Return None for normal netnames
+            #if name in NORMAL_NETNAMES:
+            #    return None  # Return None for normal netnames
             return name
         else:
             print(f"No nets information for {domain}")

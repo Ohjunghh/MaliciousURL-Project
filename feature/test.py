@@ -1,4 +1,5 @@
 import pandas as pd
+import feature_day
 import feature_https
 import feature_url_shortening
 import feature_day
@@ -9,8 +10,10 @@ import feature_file_extension
 import feature_netname
 import feature_length
 
-csv_file_path = 'C:/Users/seyeo/OneDrive/바탕 화면/졸프/kaggle_bad.csv'
-df = pd.read_csv(csv_file_path, header=None, names=['url']).head(10)
+
+csv_file_path = 'C:/MaliciousURL-Project/kaggle_bad.csv'
+df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)
+
 
 feature_day.get_feature_day(df)  # now-create, now-update, end-now
 feature_netname.get_feature_netname(df)  # netname
@@ -24,4 +27,6 @@ feature_https.get_feature_https(df)  # https
 feature_file_extension.get_feature_file_extension(df)  # file_extension
 feature_url_shortening.get_feature_url_shortening(df)  # url_shortening
 
-df.to_csv('C:/Users/seyeo/OneDrive/바탕 화면/졸프/test.csv', index=False)
+
+df.to_csv('C:/MaliciousURL-Project/kaggle_bad_feature.csv', index=False)
+

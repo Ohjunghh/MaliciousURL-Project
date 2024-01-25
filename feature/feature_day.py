@@ -35,7 +35,7 @@ def get_day(url):
                     expiration = expiration[0] if isinstance(expiration, list) else expiration
                     
                     
-                    nowdate = datetime.date(2024,1,23)
+                    nowdate = datetime(2024,1,23)
                     # timedelta 객체를 사용하여 날짜 차이 계산
                     """
                     Creation_day = (nowdate - creation).days if isinstance(creation, datetime) else (nowdate - creation[0]).days
@@ -73,7 +73,11 @@ def get_feature_day(dataframe):
         print(f"Error processing URLs: {e}")
         
 
+<<<<<<< HEAD
 #예시 사용법 C:\URL\abnormal_dataset\download
+=======
+# 예시 사용법 C:\URL\abnormal_dataset\download
+>>>>>>> 52854ee76eb8c7a0581f840bf16226eb35d7d33f
 #csv_file_path = 'C:/URL/abnormal_dataset/download/URLhaus+openphish_url_0111.csv'#'C:/URL/abnormal_dataset/download/URLhaus+openphish_url_0111.csv' 
 #df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)        
 #get_feature_day(df)
