@@ -11,7 +11,7 @@ import feature_netname
 import feature_length
 
 
-csv_file_path = 'C:/MaliciousURL-Project/kaggle_bad.csv'
+csv_file_path = 'C:/MaliciousURL-Project/kaggle_abnormal.csv'
 df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)
 
 
@@ -28,6 +28,6 @@ feature_file_extension.get_feature_file_extension(df)  # file_extension
 feature_url_shortening.get_feature_url_shortening(df)  # url_shortening
 
 
-df.to_csv('C:/MaliciousURL-Project/kaggle_bad_feature.csv', index=False)
+df.to_csv('C:/MaliciousURL-Project/result/kaggle_abnormal_1.csv', index=False)
 
 #test test
