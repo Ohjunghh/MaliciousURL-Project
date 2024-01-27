@@ -43,10 +43,13 @@ def calculate_consonant_vowel_ratio(url):
     return consonant_vowel_ratio
 
 def get_feature_uppercase_ratio(dataframe):
+    #dataframe['url'] = dataframe['url'].fillna('').astype(str)
     dataframe['uppercase'] = dataframe['url'].apply(calculate_uppercase_ratio)
 
 def get_feature_digit_ratio(dataframe):
+    #dataframe['url'] = dataframe['url'].fillna('').astype(str)
     dataframe['digit_ratio'] = dataframe['url'].apply(calculate_digit_ratio)
 
 def get_feature_consonant_vowel(dataframe):
+    #dataframe['url'] = dataframe['url'].fillna('').astype(str)
     dataframe['consonant_vowel'] = dataframe['url'].apply(calculate_consonant_vowel_ratio)
