@@ -9,7 +9,7 @@ def calculate_uppercase_ratio(url):
     if total_chars == 0:
         return 0.0
 
-    uppercase_ratio = uppercase_chars / total_chars
+    uppercase_ratio = round(uppercase_chars / total_chars,5)
     return uppercase_ratio
 
 #전체숫자비율
@@ -20,7 +20,7 @@ def calculate_digit_ratio(url):
     if total_chars == 0:
         return 0.0
 
-    digit_ratio = digit_chars / total_chars
+    digit_ratio = round(digit_chars / total_chars,5)
     return digit_ratio
 
 #호스트 모음/자음 비율
@@ -39,7 +39,7 @@ def calculate_consonant_vowel_ratio(url):
     if total_chars == 0:
         return 0.0
 
-    consonant_vowel_ratio = consonant_count / total_chars
+    consonant_vowel_ratio =round(consonant_count / total_chars,5)
     return consonant_vowel_ratio
 
 def get_feature_uppercase_ratio(dataframe):
