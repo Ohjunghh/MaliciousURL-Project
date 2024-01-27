@@ -12,8 +12,9 @@ import feature_length
 
 
 csv_file_path = 'C:/MaliciousURL-Project/kaggle_abnormal.csv'
-df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)#iloc[1:60000, :] 쓰면됨?
-
+#df = pd.read_csv(csv_file_path, header=None, names=['url'])
+df = pd.read_csv(csv_file_path)
+df = df.head(60000)
 
 feature_day.get_feature_day(df)  # now-create, now-update, end-now
 feature_netname.get_feature_netname(df)  # netname
