@@ -3,6 +3,7 @@ from urllib.parse import urlparse
 import tldextract
 
 def calculate_lengths(url):
+<<<<<<< HEAD
     try:
         if url is None:
             return 0, 0, 0, 0
@@ -15,6 +16,17 @@ def calculate_lengths(url):
         # 에러 메시지 출력
         print(f"An error occurred: {e}")
         return 0, 0, 0, 0
+=======
+    parts = urlparse(url)
+    tldparts = tldextract.extract(url)
+    # 도메인, Path, Parameter, TLD 길이
+    len_domain = len(parts.hostname) if parts.hostname else 0
+    len_path = len(parts.path) if parts.path else 0
+    len_parameter = len(parts.query) if parts.query else 0
+    len_tld = len(tldparts.suffix) if tldparts.suffix else 0
+    
+    return len_domain, len_path, len_parameter, len_tld
+>>>>>>> bfd845124de17ec3d5c6718963137c5fb4f92455
 
 def get_feature_length(dataframe):
     # None 값이 포함된 행 제거

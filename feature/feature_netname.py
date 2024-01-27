@@ -3,6 +3,7 @@ import socket
 import pandas as pd
 import re
 from urllib.parse import urlparse
+from ipwhois.exceptions import IPDefinedError
 
 #ip 가져오기
 def get_ip_address(domain):
@@ -14,16 +15,21 @@ def get_ip_address(domain):
         return None
     
 #whois 정보 가져오기
-def get_whois_info(domain):
+def get_ipwhois_info(domain):
     ip_address = get_ip_address(domain)
     
     if ip_address is not None:
-        ipwhois = IPWhois(ip_address) 
+        ipwhois = IPWhois(ip_address)
         try:
             result = ipwhois.lookup_rdap()  # RDAP로 조회
             return result
+        except IPDefinedError as e:
+            # IPDefinedError가 발생하면 사설 IP 주소이므로 에러 메시지 출력
+            print(f"Private-Use IP address {ip_address}: {e}")
         except Exception as e:
+            # 다른 예외가 발생하면 해당 예외 메시지 출력
             print(f"Error looking up RDAP for {ip_address}: {e}")
+    
     return None
 
 #normal_netnames_df = pd.read_csv('path/to/normal_netnames.csv') #나중에 추가해야함...!
@@ -32,10 +38,10 @@ def get_whois_info(domain):
 def get_netname(url):
     parts = urlparse(url)
     domain = parts.hostname
-    whois_info = get_whois_info(domain) 
+    ipwhois_info = get_ipwhois_info(domain) 
     
-    if whois_info is not None:
-        nets_info = whois_info.get('network', {})
+    if ipwhois_info is not None:
+        nets_info = ipwhois_info.get('network', {})
         name = nets_info.get('name', '')
         if name:
             #if name in NORMAL_NETNAMES:

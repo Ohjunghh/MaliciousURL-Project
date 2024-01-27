@@ -12,7 +12,11 @@ import feature_length
 
 
 csv_file_path = 'C:/MaliciousURL-Project/kaggle_abnormal.csv'
+<<<<<<< HEAD
 df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(15)
+=======
+df = (pd.read_csv(csv_file_path, header=None, names=['url'])).head(5)#iloc[1:60000, :] 쓰면됨?
+>>>>>>> bfd845124de17ec3d5c6718963137c5fb4f92455
 
 print(df)
 
@@ -28,8 +32,11 @@ feature_https.get_feature_https(df)  # https
 feature_file_extension.get_feature_file_extension(df)  # file_extension
 feature_url_shortening.get_feature_url_shortening(df)  # url_shortening
 
+<<<<<<< HEAD
 print(df)
 
+=======
+>>>>>>> bfd845124de17ec3d5c6718963137c5fb4f92455
 df.to_csv('C:/MaliciousURL-Project/result/kaggle_abnormal_1.csv', index=False)
 
 #test test
