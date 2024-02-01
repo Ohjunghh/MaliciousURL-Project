@@ -19,17 +19,16 @@ def get_ipwhois_info(domain):
     ip_address = get_ip_address(domain)
     
     if ip_address is not None:
-        ipwhois = IPWhois(ip_address)
         try:
-            result = ipwhois.lookup_rdap()  # RDAP로 조회
-            return result
+            ipwhois = IPWhois(ip_address)
+            try:
+                result = ipwhois.lookup_rdap()  # RDAP로 조회
+                return result
+            except Exception as e:
+                print(f"Error looking up RDAP for {ip_address}: {e}")
         except IPDefinedError as e:
             # IPDefinedError가 발생하면 사설 IP 주소이므로 에러 메시지 출력
             print(f"Private-Use IP address {ip_address}: {e}")
-        except Exception as e:
-            # 다른 예외가 발생하면 해당 예외 메시지 출력
-            print(f"Error looking up RDAP for {ip_address}: {e}")
-    
     return None
 
 #normal_netnames_df = pd.read_csv('path/to/normal_netnames.csv') #나중에 추가해야함...!
