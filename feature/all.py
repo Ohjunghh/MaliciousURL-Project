@@ -10,24 +10,25 @@ import socket
 import dns.resolver
 from ipwhois.exceptions import IPDefinedError
 
-def check_extension(url):
-    # 특정 단축사이트와 일치하는 정규 표현식
+def check_url_shortening(url):
+    domain = urlparse(url).netloc
+    # 특정 확장자와 일치하는 정규 표현식
     extension_pattern = (
-        r'.*\.(bit\.ly|kl\.am|cli\.gs|bc\.vc|po\.st|v\.gd|bkite\.com|shorl\.com|scrnch\.me|to\.ly|adf\.ly|x\.co|1url\.com|ad\.vu|migre\.me|su\.pr|3\.ly|'
-        r'smallurl\.co|cutt\.us|filoops\.info|shor7\.com|yfrog\.com|tinyurl\.com|u\.to|ow\.ly|ff\.im|rubyurl\.com|r2me\.com|post\.ly|twitthis\.com|vvd\.im|'
+        r'(bit\.ly|kl\.am|cli\.gs|bc\.vc|po\.st|v\.gd|bkite\.com|shorl\.com|scrnch\.me|to\.ly|adf\.ly|x\.co|1url\.com|ad\.vu|migre\.me|su\.pr|3\.ly|rb\.gy|eurl\.kr|'
+        r'smallurl\.co|cutt\.us|filoops\.info|shor7\.com|yfrog\.com|tinyurl\.com|u\.to|ow\.ly|ff\.im|rubyurl\.com|r2me\.com|post\.ly|twitthis\.com|vvd\.im|vvd\.bz|'
         r'buzurl\.com|cur\.lv|tr\.im|bl\.lnk|tiny\.cc|lnkd\.in|q\.gs|is\.gd|hurl\.ws|om\.ly|prettylinkpro\.com|qr\.net|qr\.ae|snipurl\.com|ity\.im|t\.co|'
-        r'db\.tt|link\.zip\.net|doiop\.com|url4\.eu|poprl\.com|tweez\.me|short\.ie|me2\.do|bit\.do|shorte\.st|go2l\.ink|yourls\.org|wp\.me|goo\.gl|j\.mp|'
+        r'db\.tt|link\.zip\.net|doiop\.com|url4\.eu|poprl\.com|tweez\.me|short\.ie|short\.io|bit\.do|shorte\.st|go2l\.ink|yourls\.org|wp\.me|goo\.gl|j\.mp|'
         r'twurl\.nl|snipr\.com|shortto\.com|vzturl\.com|u\.bb|shorturl\.at|han\.gl|wo\.gl|wa\.gl|url\.kr|me2\.kr|zrr\.kr|buly\.kr|lrl\.kr|vo\.la|han\.gl|shrunken\.com)$'
     )
 
     # URL이 패턴과 일치하는지 확인
-    match = re.search(extension_pattern, url)
+    match = re.match(extension_pattern, domain)
     # 일치하면 1을, 그렇지 않으면 0을 반환
     return 1 if match else 0
 
 def get_feature_url_shortening(dataframe):
-    # 해당 열에 대해 check_extension 함수를 적용하여 결과를 새로운 열에 저장
-    dataframe['url_shortening'] = dataframe['url'].apply(check_extension)
+    # 해당 열에 대해 check_url_shortening 함수를 적용하여 결과를 새로운 열에 저장
+    dataframe['url_shortening'] = dataframe['url'].apply(check_url_shortening)
 
 def get_dns_ttl(url):
     try:
@@ -135,7 +136,7 @@ def check_https_protocol(url):
 def get_feature_https(dataframe):
     dataframe['https'] = dataframe['url'].apply(check_https_protocol)
 
-def check_extension(url):
+def check_file_extension(url):
     # 정규 표현식을 사용하여 주어진 확장자들과 일치하는지 확인
     match = re.search(r'.*\.(php|html|htm|jpg|dll|hwp|hwpx|pptx|docx|iso|js|lnk|vbs|xls|xml|zip|xlsx|txt|exe|bin|i|sh|asp|xlsb|vi|pdf|gif|bot|sys|aspx|png|py|jar|tar|rar|arm|arc|bat|spc|sparc|wav|vbs|vbe|wsf|wsc|hta|ppc|m)$', url)
     # 일치하면 extension을 1로, 그렇지 않으면 0으로 반환
@@ -143,7 +144,7 @@ def check_extension(url):
 
 def get_feature_file_extension(dataframe):
     # 해당 열에 대해 check_extension 함수를 적용하여 결과를 새로운 열에 저장
-    dataframe["file_extension"] = dataframe['url'].apply(check_extension)
+    dataframe["file_extension"] = dataframe['url'].apply(check_file_extension)
 
 
 def get_feature_count(dataframe):
@@ -258,10 +259,19 @@ def get_feature_consonant_vowel(dataframe):
 
 #main
 print(datetime.now())
-csv_file_path ="C:/MaliciousURL-Project/kaggle_abnormal.csv"
+csv_file_path ="C:/Grape/test.csv"#"C:/MaliciousURL-Project/kaggle_abnormal.csv"
 
+import chardet
 try:
-    df = pd.read_csv(csv_file_path, header=None,names=['url'],skiprows=120000,nrows=2)
+    with open(csv_file_path, 'rb') as f:
+        result = chardet.detect(f.read())
+except FileNotFoundError:
+    print(f"File not found at path: {csv_file_path}")
+    exit()
+
+encoding = result['encoding']
+try:
+    df = pd.read_csv(csv_file_path, encoding=encoding, header=None,names=['url'],skiprows=120000,nrows=2)
     print(df+"\n")
 except pd.errors.EmptyDataError:
     print(f"File at path {csv_file_path} is empty.")
