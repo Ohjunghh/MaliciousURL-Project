@@ -258,10 +258,10 @@ def get_feature_consonant_vowel(dataframe):
 
 #main
 print(datetime.now())
-csv_file_path ="C:/MaliciousURL-Project/kaggle_abnormal.csv"
+csv_file_path ="C:/Users/seyeo/OneDrive/바탕 화면/kaggle_abnormal_1.csv"
 
 try:
-    df = pd.read_csv(csv_file_path, header=None,names=['url'],skiprows=120000,nrows=2)
+    df = pd.read_csv(csv_file_path, header=None,names=['url'],skiprows=1,nrows=10001)
     print(df+"\n")
 except pd.errors.EmptyDataError:
     print(f"File at path {csv_file_path} is empty.")
@@ -278,5 +278,5 @@ get_feature_https(df)  # https
 get_feature_file_extension(df)  # file_extension
 get_feature_url_shortening(df)  # url_shortening
 
-df.to_csv('C:/MaliciousURL-Project/result/test.csv', index=False)
+df.to_csv('C:/MaliciousURL-Project/result/kaggle_abnormal_1.csv', index=False)
 print(datetime.now())
