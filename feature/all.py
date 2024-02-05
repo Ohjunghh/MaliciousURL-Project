@@ -259,30 +259,11 @@ def get_feature_consonant_vowel(dataframe):
 
 #main
 print(datetime.now())
-<<<<<<< HEAD
-csv_file_path ="C:/Users/seyeo/OneDrive/바탕 화면/kaggle_abnormal_1.csv"
-=======
-csv_file_path ="C:/Grape/test.csv"#"C:/MaliciousURL-Project/kaggle_abnormal.csv"
->>>>>>> f6085d0949a1e350259f11fd68bedeb1b98d4d8f
+csv_file_path ="C:/MaliciousURL-Project/kaggle_abnormal.csv"
 
-import chardet
-try:
-<<<<<<< HEAD
-    df = pd.read_csv(csv_file_path, header=None,names=['url'],skiprows=1,nrows=10001)
-=======
-    with open(csv_file_path, 'rb') as f:
-        result = chardet.detect(f.read())
-except FileNotFoundError:
-    print(f"File not found at path: {csv_file_path}")
-    exit()
 
-encoding = result['encoding']
-try:
-    df = pd.read_csv(csv_file_path, encoding=encoding, header=None,names=['url'],skiprows=120000,nrows=2)
->>>>>>> f6085d0949a1e350259f11fd68bedeb1b98d4d8f
-    print(df+"\n")
-except pd.errors.EmptyDataError:
-    print(f"File at path {csv_file_path} is empty.")
+df=pd.read_csv(csv_file_path,header=None,names=['url'],skiprows=25000,nrows=5000)
+
   
 get_feature_netname(df)  # netname
 get_feature_day(df)  # now-create, now-update, end-now, end-create
