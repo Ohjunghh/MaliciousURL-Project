@@ -24,7 +24,7 @@ y = datasets[['abnormal']]
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 # model training
-lgbm_wrapper = LGBMClassifier(n_estimators=200,max_depth=5,num_leaves=20,learning_rate=0.1)
+lgbm_wrapper = LGBMClassifier(n_estimators=200,max_depth=5,num_leaves=20,learning_rate=0.1,random_state=42)
 
 #callbacks=[lgb.early_stopping(stopping_rounds=50)
 #pip install lightgbm==3.3.2
