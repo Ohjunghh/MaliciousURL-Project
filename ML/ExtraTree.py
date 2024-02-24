@@ -1,11 +1,11 @@
 import pandas as pd
-import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 import warnings
 from sklearn.metrics import accuracy_score
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
+import joblib
 
 warnings.filterwarnings('ignore')
 
@@ -28,6 +28,8 @@ clf = ExtraTreesClassifier(n_estimators=100,
     max_features='sqrt',
     random_state=42)
 clf.fit(X_train, y_train)
+
+joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/ExtraTree.pkl')
 
 pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, pred)
