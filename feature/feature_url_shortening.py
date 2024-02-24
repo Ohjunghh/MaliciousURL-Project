@@ -21,3 +21,4 @@ def check_url_shortening(url):
 def get_feature_url_shortening(dataframe):
     # 해당 열에 대해 check_extension 함수를 적용하여 결과를 새로운 열에 저장
     dataframe['url_shortening'] = dataframe['url'].apply(check_url_shortening)
+
