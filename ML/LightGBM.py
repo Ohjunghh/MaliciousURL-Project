@@ -11,11 +11,12 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # 데이터 불러오기
-path = 'C:/MaliciousURL-Project/result/real/'
-datasets = pd.read_csv(path + 'MLtest.csv', header=0)
+path = 'C:/MaliciousURL-Project/ML/'
+datasets = pd.read_csv(path + 'urldataset.csv')
 
-# 특성과 타겟 분리
-x = datasets.iloc[:, 1:35]
+
+# 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
+x = datasets.iloc[:, 1:34]
 y = datasets[['abnormal']]
 
 

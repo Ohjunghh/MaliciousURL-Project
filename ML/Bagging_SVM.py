@@ -9,11 +9,12 @@ import joblib
 
 warnings.filterwarnings('ignore')
 
-path = 'C:/MaliciousURL-Project/result/real/'
-datasets = pd.read_csv(path + 'MLtest.csv',header=0)
+path = 'C:/MaliciousURL-Project/ML/'
+datasets = pd.read_csv(path + 'urldataset.csv')
+
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
-x = datasets.iloc[:, 1:35]
+x = datasets.iloc[:, 1:34]
 y = datasets[['abnormal']]
 
 # 훈련 데이터와 테스트 데이터로 분할

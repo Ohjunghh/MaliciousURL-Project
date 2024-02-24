@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_sc
 
 warnings.filterwarnings('ignore')
 
-path = 'C:/MaliciousURL-Project/ML/'s
+path = 'C:/MaliciousURL-Project/ML/'
 datasets = pd.read_csv(path + 'urldataset.csv')
 
 
