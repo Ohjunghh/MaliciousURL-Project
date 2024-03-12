@@ -21,9 +21,9 @@ y = datasets[['abnormal']]
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 
-clf = ExtraTreesClassifier(n_estimators=100,
-    max_depth=8,
-    min_samples_split=3,
+clf = ExtraTreesClassifier(n_estimators=250,
+    max_depth=10,
+    min_samples_split=5,
     min_samples_leaf=1,
     max_features='sqrt',
     random_state=42)

@@ -25,6 +25,8 @@ clf = AdaBoostClassifier(estimator=DecisionTreeClassifier(max_depth=1),
                         learning_rate=0.1,
 						random_state=42)
 
+
+
 clf.fit(X_train, y_train)
 #joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/ada_dt.pkl')
 

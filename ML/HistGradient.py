@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 import warnings
 from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
+import joblib
 
 warnings.filterwarnings('ignore')
 
@@ -20,10 +21,13 @@ X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 
 
 clf = HistGradientBoostingClassifier(
-    learning_rate=0.1,  
-    max_iter=100,       
+    learning_rate=0.2,  
+    max_iter=400,       
     max_bins=255,       
-    random_state=42
+    random_state=42,
+    max_leaf_nodes=10,
+    min_samples_leaf=15,
+    l2_regularization=0.5
 )
 clf.fit(X_train, y_train)
 
@@ -38,4 +42,4 @@ print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
 
-joblib.dump(clf,'C:/MaliciousURL-Project/result/real/hist.pkl')
+joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/HistGradient.pkl')

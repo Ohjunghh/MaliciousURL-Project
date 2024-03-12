@@ -5,6 +5,7 @@ import warnings
 from sklearn.metrics import accuracy_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
+import joblib
 
 warnings.filterwarnings('ignore')
 
@@ -39,8 +40,4 @@ print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
 
-
-#변수중요도
-for i, col in enumerate(X_train.columns):   
-    print(f'{col} 중요도 : {clf.feature_importances_[i]}') 
-print(clf.get_params())
+joblib.dump(clf,'C:/MaliciousURL-Project/ML/RandomForest.pkl')

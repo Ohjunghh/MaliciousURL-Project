@@ -11,10 +11,10 @@ import feature_netname
 import feature_length
 
 
-csv_file_path = 'C:/MaliciousURL-Project/kaggle_abnormal.csv'
+csv_file_path = 'C:/Users/seyeo/OneDrive/바탕 화면/kaggle_abnormal_1.csv'
 #df = pd.read_csv(csv_file_path, header=None, names=['url'])
 df = pd.read_csv(csv_file_path)
-df = df.head(60000)
+df = df.head(10001)
 
 feature_day.get_feature_day(df)  # now-create, now-update, end-now
 feature_netname.get_feature_netname(df)  # netname

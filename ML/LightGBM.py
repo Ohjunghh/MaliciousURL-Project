@@ -12,7 +12,7 @@ warnings.filterwarnings('ignore')
 
 # 데이터 불러오기
 path = 'C:/MaliciousURL-Project/ML/'
-datasets = pd.read_csv(path + 'urldataset.csv')
+datasets = pd.read_csv(path + 'urldataset2.csv')
 
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
@@ -31,7 +31,7 @@ lgbm_wrapper = LGBMClassifier(n_estimators=200,max_depth=5,num_leaves=20,learnin
 
 evals = [(X_test, y_test)] 
 lgbm_wrapper.fit(X_train, y_train, eval_metric='logloss', eval_set=evals)
-joblib.dump(lgbm_wrapper,'C:/MaliciousURL-Project/ML/result/LightGBM.pkl')
+
 # predict 
 y_pred = lgbm_wrapper.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
@@ -43,3 +43,5 @@ print("Accuracy:", accuracy)
 print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
+
+joblib.dump(lgbm_wrapper,'C:/MaliciousURL-Project/ML/result/LightGBM.pkl')
