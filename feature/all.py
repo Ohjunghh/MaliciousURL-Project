@@ -267,22 +267,11 @@ def get_feature_consonant_vowel(dataframe):
 
 #main
 print(datetime.now())
-csv_file_path ="C:/Grape/test.csv"#"C:/MaliciousURL-Project/kaggle_abnormal.csv"
+csv_file_path ="C:/MaliciousURL-Project/kaggle_abnormal.csv"
 
-import chardet
-try:
-    with open(csv_file_path, 'rb') as f:
-        result = chardet.detect(f.read())
-except FileNotFoundError:
-    print(f"File not found at path: {csv_file_path}")
-    exit()
 
-encoding = result['encoding']
-try:
-    df = pd.read_csv(csv_file_path, encoding=encoding, header=None,names=['url'],skiprows=120000,nrows=2)
-    print(df+"\n")
-except pd.errors.EmptyDataError:
-    print(f"File at path {csv_file_path} is empty.")
+df=pd.read_csv(csv_file_path,header=None,names=['url'],skiprows=25000,nrows=5000)
+
   
 get_feature_netname(df)  # netname
 get_feature_day(df)  # now-create, now-update, end-now, end-create
@@ -296,5 +285,5 @@ get_feature_https(df)  # https
 get_feature_file_extension(df)  # file_extension
 get_feature_url_shortening(df)  # url_shortening
 
-df.to_csv('C:/MaliciousURL-Project/result/test.csv', index=False)
+df.to_csv('C:/MaliciousURL-Project/result/kaggle_abnormal_1.csv', index=False)
 print(datetime.now())
