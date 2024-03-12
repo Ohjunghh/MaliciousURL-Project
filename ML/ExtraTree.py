@@ -2,7 +2,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 import warnings
-from sklearn.metrics import accuracy_score
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
 import joblib
@@ -21,14 +20,14 @@ y = datasets[['abnormal']]
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 
-clf = ExtraTreesClassifier(n_estimators=250,
-    max_depth=10,
-    min_samples_split=5,
-    min_samples_leaf=1,
-    max_features='sqrt',
-    random_state=42)
+clf = ExtraTreesClassifier(max_depth= 10,          
+ max_features= 'sqrt',
+ min_samples_leaf=1,      
+ min_samples_split= 5,   
+ n_estimators= 250,
+ random_state= 42
+)
 clf.fit(X_train, y_train)
-
 joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/ExtraTree.pkl')
 
 pred = clf.predict(X_test)

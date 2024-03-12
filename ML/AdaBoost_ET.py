@@ -8,12 +8,12 @@ from sklearn.ensemble import ExtraTreesClassifier
 import warnings
 warnings.filterwarnings('ignore')
 
-path = 'C:/MaliciousURL-Project/result/real/'
-datasets = pd.read_csv(path + 'MLtest.csv',header=0)
+path = 'C:/MaliciousURL-Project/ML/'
+datasets = pd.read_csv(path + 'urldataset.csv')
 
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
-x = datasets.iloc[:, 1:35] #url열은 문자열이라 학습안됨
+x = datasets.iloc[:, 1:34]
 y = datasets[['abnormal']]
 
 #print(x.info())
@@ -27,14 +27,6 @@ clf = AdaBoostClassifier(estimator=ExtraTreesClassifier(max_depth=1),
 
 clf.fit(X_train, y_train)
 joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/ada_et.pkl')
-
-'''
-# 변수 중요도 출력
-importances = clf.feature_importances_
-print("importances:")
-for i, importance in enumerate(importances):
-    print(f"importances {i+1}: {importance}")
-'''
 
 y_pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
