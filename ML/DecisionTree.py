@@ -5,6 +5,7 @@ import warnings
 from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
+import joblib
 
 warnings.filterwarnings('ignore')
 
@@ -21,12 +22,14 @@ X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 
 
 clf = DecisionTreeClassifier(
-    max_depth=5,
+    max_depth=8,
     min_samples_split=3,
-    min_samples_leaf=1,
+    min_samples_leaf=3,
     max_features=None,
     random_state=42)
 clf.fit(X_train, y_train)
+
+joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/DecisionTree.pkl')
 
 pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, pred)

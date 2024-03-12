@@ -25,10 +25,10 @@ svm_model = SVC(kernel='linear')
 
 # Bagging 알고리즘 적용
 clf = BaggingClassifier(estimator=svm_model, 
-                                  n_estimators=10, 
-                                  max_samples=1.0, 
-                                  bootstrap=False, 
-                                  n_jobs=1, 
+                                  n_estimators=20, 
+                                  max_samples=0.8, 
+                                  bootstrap=True, 
+                                  n_jobs=-1, 
                                   random_state=42)
 clf.fit(X_train, y_train)
 

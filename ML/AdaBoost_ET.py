@@ -28,6 +28,14 @@ clf = AdaBoostClassifier(estimator=ExtraTreesClassifier(max_depth=1),
 clf.fit(X_train, y_train)
 joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/ada_et.pkl')
 
+'''
+# 변수 중요도 출력
+importances = clf.feature_importances_
+print("importances:")
+for i, importance in enumerate(importances):
+    print(f"importances {i+1}: {importance}")
+'''
+
 y_pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 recall = recall_score(y_test, y_pred)
