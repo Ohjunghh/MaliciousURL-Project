@@ -9,7 +9,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 path = 'C:/MaliciousURL-Project/ML/'
-datasets = pd.read_csv(path + 'urldataset.csv')
+datasets = pd.read_csv(path + 'urldataset2.csv')
 
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
@@ -26,7 +26,7 @@ clf = AdaBoostClassifier(estimator=ExtraTreesClassifier(max_depth=1),
 						random_state=42)
 
 clf.fit(X_train, y_train)
-joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/ada_et.pkl')
+joblib.dump(clf,'C:/MaliciousURL-Project/ML/real_result/ada_et.pkl')
 
 y_pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
@@ -38,3 +38,5 @@ print("Accuracy:", accuracy)
 print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
+"""
+"""

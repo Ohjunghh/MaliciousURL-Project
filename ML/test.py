@@ -1,13 +1,10 @@
 import pandas as pd
-import numpy as np
 from sklearn.model_selection import train_test_split
-import warnings
-from sklearn.metrics import accuracy_score
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
 import joblib
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import ExtraTreesClassifier
 
-warnings.filterwarnings('ignore')
 
 path = 'C:/MaliciousURL-Project/ML/'
 datasets = pd.read_csv(path + 'urldataset.csv')
@@ -17,20 +14,20 @@ datasets = pd.read_csv(path + 'urldataset.csv')
 x = datasets.iloc[:, 1:34]
 y = datasets[['abnormal']]
 
+#print(x.info())
 
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
+clf = joblib.load('C:/MaliciousURL-Project/ML/real_result/ada_et.pkl')
 
-clf=joblib.load('C:/MaliciousURL-Project/ML/RandomForest.pkl')
 
-pred = clf.predict(X_test)
-accuracy = accuracy_score(y_test, pred)
-recall = recall_score(y_test, pred)
-precision = precision_score(y_test, pred)
-f1 = f1_score(y_test, pred)
+y_pred = clf.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
 
 print("Accuracy:", accuracy)
 print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
-

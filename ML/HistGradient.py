@@ -8,12 +8,12 @@ import joblib
 
 warnings.filterwarnings('ignore')
 
-path = 'C:/MaliciousURL-Project/result/real/'
-datasets = pd.read_csv(path + 'MLtest.csv',header=0)
+path = 'C:/MaliciousURL-Project/ML/'
+datasets = pd.read_csv(path + 'urldataset2.csv')
 
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
-x = datasets.iloc[:, 1:35]
+x = datasets.iloc[:, 1:34]
 y = datasets[['abnormal']]
 
 
@@ -42,4 +42,12 @@ print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
 
-joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/HistGradient.pkl')
+joblib.dump(clf,'C:/MaliciousURL-Project/ML/real_result/Hist.pkl')
+
+"""
+Accuracy: 0.9914722222222222
+Recall: 0.9894795435569163
+Precision: 0.993405610819269
+F1-Score: 0.9914386904263923
+
+"""

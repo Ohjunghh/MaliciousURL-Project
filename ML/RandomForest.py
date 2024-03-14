@@ -10,7 +10,7 @@ import joblib
 warnings.filterwarnings('ignore')
 
 path = 'C:/MaliciousURL-Project/ML/'
-datasets = pd.read_csv(path + 'urldataset.csv')
+datasets = pd.read_csv(path + 'urldataset2.csv')
 
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
@@ -40,4 +40,11 @@ print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
 
-joblib.dump(clf,'C:/MaliciousURL-Project/ML/RandomForest.pkl')
+joblib.dump(clf,'C:/MaliciousURL-Project/ML/real_result/RandomForest.pkl')
+
+"""
+Accuracy: 0.9888888888888889
+Recall: 0.9846924575563596
+Precision: 0.9929834409205726
+F1-Score: 0.9888205701509223
+"""

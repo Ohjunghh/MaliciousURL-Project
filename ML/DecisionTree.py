@@ -10,7 +10,7 @@ import joblib
 warnings.filterwarnings('ignore')
 
 path = 'C:/MaliciousURL-Project/ML/'
-datasets = pd.read_csv(path + 'urldataset.csv')
+datasets = pd.read_csv(path + 'urldataset2.csv')
 
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
@@ -29,7 +29,7 @@ clf = DecisionTreeClassifier(
     random_state=42)
 clf.fit(X_train, y_train)
 
-joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/DecisionTree.pkl')
+joblib.dump(clf,'C:/MaliciousURL-Project/ML/real_result/DecisionTree.pkl')
 
 pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, pred)
@@ -41,3 +41,10 @@ print("Accuracy:", accuracy)
 print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
+
+"""
+Accuracy: 0.9691666666666666
+Recall: 0.9558586139716114
+Precision: 0.9818743210017725
+F1-Score: 0.9686918260280928
+"""
