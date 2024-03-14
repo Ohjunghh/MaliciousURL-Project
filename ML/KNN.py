@@ -8,7 +8,7 @@ import joblib
 warnings.filterwarnings('ignore')
 
 path = 'C:/MaliciousURL-Project/ML/'
-datasets = pd.read_csv(path + 'urldataset.csv')
+datasets = pd.read_csv(path + 'urldataset2.csv')
 
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
@@ -16,7 +16,7 @@ x = datasets.iloc[:, 1:34]
 y = datasets[['abnormal']]
 
 # 훈련 데이터와 테스트 데이터로 분할
-X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 
 
@@ -42,4 +42,12 @@ print("Precision:", precision)
 print("F1-Score:", f1)
 
 
-joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/KNN.pkl')
+joblib.dump(clf,'C:/MaliciousURL-Project/ML/real_result/KNN.pkl')
+
+"""
+Accuracy: 0.8930555555555556
+Recall: 0.9048149178959087
+Precision: 0.883664039141071
+F1-Score: 0.8941144114411441
+
+"""

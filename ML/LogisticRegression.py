@@ -6,11 +6,11 @@ from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_sc
 import joblib
 
 # 데이터 불러오기
-path = 'C:/MaliciousURL-Project/result/real/'
-datasets = pd.read_csv(path + 'MLtest.csv', header=0)
+path = 'C:/MaliciousURL-Project/ML/'
+datasets = pd.read_csv(path + 'urldataset2.csv')
 
 # 데이터 전처리
-x = datasets.iloc[:, 1:35]
+x = datasets.iloc[:, 1:34]
 y = datasets['abnormal']
 
 # 학습 데이터와 테스트 데이터 분리
@@ -52,4 +52,12 @@ print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
 
-joblib.dump(clf,'C:/MaliciousURL-Project/ML/result/LogisiticRegression.pkl')
+joblib.dump(clf,'C:/MaliciousURL-Project/ML/real_result/Logisitic.pkl')
+
+"""
+Accuracy: 0.9414444444444444
+Recall: 0.9353186752017812
+Precision: 0.9467012226040904
+F1-Score: 0.9409755278042226
+
+"""
