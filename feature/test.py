@@ -7,17 +7,20 @@ import feature_ttl
 import feature_ratio
 import feature_count_special_character
 import feature_file_extension
-import feature_netname
+#import feature_netname
 import feature_length
+import os
 
+# 경로 설정 
+project_dir = os.path.dirname(os.path.abspath(__file__))
+csv_file_path = os.path.join(project_dir, 'result/t.csv')
+output_file_path = os.path.join(project_dir, 'result/filextension.csv')
 
-csv_file_path = 'C:/Users/seyeo/OneDrive/바탕 화면/kaggle_abnormal_1.csv'
-#df = pd.read_csv(csv_file_path, header=None, names=['url'])
-df = pd.read_csv(csv_file_path)
-df = df.head(10001)
+df = pd.read_csv(csv_file_path, header=None, names=['url'])
+#df = pd.read_csv(csv_file_path,usecols=['url'])
 
 feature_day.get_feature_day(df)  # now-create, now-update, end-now
-feature_netname.get_feature_netname(df)  # netname
+#feature_netname.get_feature_netname(df)  # netname
 feature_ttl.get_feature_ttl(df)  # ttl
 feature_length.get_feature_length(df)  # len_domain, len_path, len_parameter, len_tld
 feature_count_special_character.get_feature_count(df)  # count_special
@@ -28,6 +31,7 @@ feature_https.get_feature_https(df)  # https
 feature_file_extension.get_feature_file_extension(df)  # file_extension
 feature_url_shortening.get_feature_url_shortening(df)  # url_shortening
 
-df.to_csv('C:/MaliciousURL-Project/result/kaggle_abnormal_1.csv', index=False)
+print(df)
+df.to_csv(output_file_path, index=False)
 
 #test test

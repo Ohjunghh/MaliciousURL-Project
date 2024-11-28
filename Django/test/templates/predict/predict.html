@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Malicious URL</title>
+</head>
+<body>
+    <h1>Predict Malicious URL</h1>
+    <form id="predictForm" method="post">
+        {% csrf_token %}
+        <label for="url">Input URL:</label>
+        <input type="text" id="url" name="url" required>
+        <button type="submit">Predict</button>
+    </form>
+    <div id="result">
+        <!-- 결과가 여기에 표시됩니다 -->
+    </div>
+    <script>
+        document.getElementById('predictForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const url = document.getElementById('url').value;
+            
+            fetch("{% url 'predict' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: new URLSearchParams({
+                    'url': url
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = `
+                    Input URL: ${data.input_url}
+                    Class 0 Probability: ${data.class_0_probability}
+                    Class 1 Probability: ${data.class_1_probability}
+                `;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -9,6 +9,7 @@ from datetime import datetime
 def get_whois_info(domain):
     try:
         info = whois.whois(domain)
+        print(info)
         return info
     except PywhoisError as e:
         print(f"Error retrieving WHOIS information for {domain}: {e}")
@@ -33,7 +34,7 @@ def get_day(url):
                     expiration = expiration[0] if isinstance(expiration, list) else expiration
                     
                     
-                    nowdate = datetime(2024,1,23)
+                    nowdate = datetime.now()#datetime(2024,1,23)
                     
                     Creation_day = (nowdate - creation).days 
                     Update_day = (nowdate - update).days 
@@ -55,4 +56,46 @@ def get_feature_day(dataframe):
         dataframe[['Creation_day', 'Update_day', 'Expiration_day', 'Expiration_Creation_day']] = dataframe['url'].apply(get_day).apply(pd.Series)
     except (Exception, pd.errors.EmptyDataError, pd.errors.ParserError) as e:
         print(f"Error processing URLs: {e}")
-        
+
+url_list = [
+    "http://www.a043288.vip/",
+    "http://geminnilginxz.godaddysites.com/",
+    "http://www.project-aacount.com/",
+    "http://a4vby.shop/",
+    "https://feceboolk.blogspot.in/",
+    "http://dfgh4.pages.dev/",
+    "http://metamask-wallett.blogspot.pe/",
+    "http://13250374531.com/",
+    "https://glassledwall.info/NZ-fb225-250124/?u=14C225",
+    "http://www.agripro-fr-e7d60a7ef9cb6d71f625.com/",
+    "http://0205.vip/",
+    "http://outlook.verificacion.hstn.me/?i=1",
+    "http://instagramprofiileurl.blogspot.co.ke/",
+    "http://videodexiomara.blogspot.tw/",
+    "http://nfts-manta.network/",
+    "http://usps.mytrackingr-ne.top/",
+    "http://cvdxdfvn2.pages.dev/"
+]
+
+normal_url_list = [
+    "https://google.com",
+    "https://youtube.com",
+    "https://facebook.com",
+    "https://wikipedia.org",
+    "https://yahoo.com",
+    "https://google.co.in",
+    "https://reddit.com",
+    "https://qq.com",
+    "https://amazon.com",
+    "https://taobao.com",
+    "https://twitter.com",
+    "https://tmall.com",
+    "https://google.co.jp",
+    "https://live.com",
+    "https://vk.com",
+    "https://instagram.com",
+    "https://sohu.com"
+]
+
+url="https://www.duksung.ac.kr"
+get_whois_info(url)

@@ -23,3 +23,4 @@ def get_feature_length(dataframe):
     
     # 계산된 길이를 DataFrame에 추가
     dataframe[['len_domain', 'len_path', 'len_parameter', 'len_tld']] = pd.DataFrame(lengths, index=dataframe.index)
+

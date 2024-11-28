@@ -9,6 +9,7 @@ from ipwhois import IPWhois
 import socket
 import dns.resolver
 from ipwhois.exceptions import IPDefinedError
+import os
 
 def check_url_shortening(url):
     domain = urlparse(url).netloc
@@ -265,10 +266,12 @@ def get_feature_digit_ratio(dataframe):
 def get_feature_consonant_vowel(dataframe):
     dataframe['consonant_vowel'] = dataframe['url'].apply(calculate_consonant_vowel_ratio)
 
-#main
+#
 print(datetime.now())
-csv_file_path ="C:/MaliciousURL-Project/kaggle_abnormal.csv"
 
+project_dir = os.path.dirname(os.path.abspath(__file__))  # 현재 파일의 경로를 기준으로 함
+csv_file_path = os.path.join(project_dir, "kaggle_abnormal.csv")
+output_file_path = os.path.join(project_dir, "result/kaggle_abnormal_1.csv")
 
 df=pd.read_csv(csv_file_path,header=None,names=['url'],skiprows=25000,nrows=5000)
 
@@ -285,5 +288,5 @@ get_feature_https(df)  # https
 get_feature_file_extension(df)  # file_extension
 get_feature_url_shortening(df)  # url_shortening
 
-df.to_csv('C:/MaliciousURL-Project/result/kaggle_abnormal_1.csv', index=False)
+df.to_csv(output_file_path, index=False)
 print(datetime.now())

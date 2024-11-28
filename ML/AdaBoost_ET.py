@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
@@ -8,8 +9,13 @@ from sklearn.ensemble import ExtraTreesClassifier
 import warnings
 warnings.filterwarnings('ignore')
 
-path = 'C:/MaliciousURL-Project/ML/'
-datasets = pd.read_csv(path + 'urldataset2.csv')
+project_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(project_dir, 'ML/urldataset2.csv')
+model_output_path = os.path.join(project_dir, 'ML/result/ada_et.pkl')
+
+datasets = pd.read_csv(data_path)
+
+
 
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
@@ -26,7 +32,7 @@ clf = AdaBoostClassifier(estimator=ExtraTreesClassifier(max_depth=1),
 						random_state=42)
 
 clf.fit(X_train, y_train)
-joblib.dump(clf,'C:/MaliciousURL-Project/ML/real_result/ada_et.pkl')
+joblib.dump(clf,model_output_path)
 
 y_pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)

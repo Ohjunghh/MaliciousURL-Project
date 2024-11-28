@@ -9,7 +9,7 @@ import joblib
 
 warnings.filterwarnings('ignore')
 
-path = 'C:/MaliciousURL-Project/ML/'
+path = './ML/'
 datasets = pd.read_csv(path + 'urldataset2.csv')
 
 
@@ -40,7 +40,7 @@ print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
 
-joblib.dump(clf,'C:/MaliciousURL-Project/ML/real_result/RandomForest.pkl')
+joblib.dump(clf,'./ML/real_result/RandomForest.pkl')
 
 """
 Accuracy: 0.9888888888888889

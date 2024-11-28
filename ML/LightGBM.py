@@ -1,3 +1,4 @@
+import os
 from lightgbm import LGBMClassifier
 import pandas as pd
 import numpy as np
@@ -10,10 +11,12 @@ import joblib
 import warnings
 warnings.filterwarnings('ignore')
 
-# 데이터 불러오기
-path = 'C:/MaliciousURL-Project/ML/'
-datasets = pd.read_csv(path + 'urldataset2.csv')
+project_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(project_dir, 'ML/urldataset.csv')
+model_output_path = os.path.join(project_dir, 'ML/result/LightGBM.pkl')
 
+# CSV 데이터 읽기
+datasets = pd.read_csv(data_path)
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
 x = datasets.iloc[:, 1:34]
@@ -44,4 +47,10 @@ print("Recall:", recall)
 print("Precision:", precision)
 print("F1-Score:", f1)
 
-joblib.dump(lgbm_wrapper,'C:/MaliciousURL-Project/ML/result/LightGBM.pkl')
+joblib.dump(lgbm_wrapper,model_output_path)
+"""
+Accuracy: 0.9885277777777778
+Recall: 0.9841914834400223
+Precision: 0.992756878158338
+F1-Score: 0.9884556254367576
+"""

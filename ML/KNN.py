@@ -1,3 +1,4 @@
+import os
 from sklearn.neighbors import KNeighborsClassifier
 import pandas as pd
 import warnings
@@ -7,8 +8,11 @@ import joblib
 
 warnings.filterwarnings('ignore')
 
-path = 'C:/MaliciousURL-Project/ML/'
-datasets = pd.read_csv(path + 'urldataset2.csv')
+project_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(project_dir, 'ML/urldataset2.csv')
+model_output_path = os.path.join(project_dir, 'ML/result/KNN.pkl')
+
+datasets = pd.read_csv(data_path)
 
 
 # 데이터프레임에서 열을 추출하여 새로운 데이터프레임 생성
@@ -42,7 +46,7 @@ print("Precision:", precision)
 print("F1-Score:", f1)
 
 
-joblib.dump(clf,'C:/MaliciousURL-Project/ML/real_result/KNN.pkl')
+joblib.dump(clf,model_output_path)
 
 """
 Accuracy: 0.8931388888888889
