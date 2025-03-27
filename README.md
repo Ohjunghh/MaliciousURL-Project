@@ -4,7 +4,7 @@
 * 머신러닝 알고리즘을 활용하여 신규 악성 URL 탐지 성능을 향상시키고, 실시간으로 악성 URL을 정확하게 판별하는 시스템을 구축
 * 사용자에게 안전한 인터넷 환경을 제공하고, 스미싱, 피싱 등 사이버 범죄 예방에 기여
 
-### 주요 기술 스택
+### 📚 주요 기술 스택
 
 - **프로그래밍 언어** </br> 
   <img src="https://img.shields.io/badge/-Python-3776AB?style=flat&logo=Python&logoColor=white"/>
