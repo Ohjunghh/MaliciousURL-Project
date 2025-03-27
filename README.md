@@ -6,16 +6,14 @@
 
 ### 주요 기술 스택
 
-- **프로그래밍 언어**  
-  ![Python Icon](https://iconscout.com/icons/python)
+- **프로그래밍 언어** </br> 
+  <img src="https://img.shields.io/badge/-Python-3776AB?style=flat&logo=Python&logoColor=white"/>
 
-- **머신러닝 라이브러리**
-  ![Scikit-learn Icon](https://www.ibm.com/think/topics/scikit-learn)  
-  ![LightGBM Icon](https://inside-machinelearning.com/en/lightgbm-guide/)
+- **머신러닝 라이브러리** </br>
+  <img src="https://img.shields.io/badge/-scikitlearn-F7931E?style=flat&logo=scikitlearn&logoColor=white"/>
 
-- **웹 프레임워크**
-  ![Django Icon](https://iconscout.com/icons/django-python-framework)
-
+- **웹 프레임워크** </br> 
+  <img src="https://img.shields.io/badge/-Django-092E20?style=flat&logo=Django&logoColor=white"/>
 
 ### 🔧 구현과정
 1. 데이터 수집: Kaggle, Openphish, URLhaus 등에서 악성 URL과 정상 URL 데이터를 수집하여 학습 데이터셋 구축
