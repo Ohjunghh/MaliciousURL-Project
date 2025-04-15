@@ -16,10 +16,10 @@
   <img src="https://img.shields.io/badge/-Django-092E20?style=flat&logo=Django&logoColor=white"/>
 
 ### 🔧 구현과정
-1. 데이터 수집: Kaggle, Openphish, URLhaus 등에서 악성 URL과 정상 URL 데이터를 수집하여 학습 데이터셋 구축 <br> 
-2. 특징 추출: URL의 길이, WHOIS 정보, TTL 주기 등 다양한 특징을 기반으로 악성 URL을 탐지할 수 있는 특성 분석 <br> 
-3. 머신러닝 모델 학습: Decision Tree, Random Forest, LightGBM 등 다양한 머신러닝 알고리즘을 사용하여 모델 학습 및 최적화 <br> 
-4. 웹 통합: Django 프로젝트에서 URL을 입력받아 모델을 통해 악성 여부를 실시간으로 판별하는 시스템 구축 <br> 
+1. 데이터 수집: Kaggle, Openphish, URLhaus 등에서 악성 URL과 정상 URL 데이터를 수집하여 학습 데이터셋 구축 </br> 
+2. 특징 추출: URL의 길이, WHOIS 정보, TTL 주기 등 다양한 특징을 기반으로 악성 URL을 탐지할 수 있는 특성 분석 </br> 
+3. 머신러닝 모델 학습: Decision Tree, Random Forest, LightGBM 등 다양한 머신러닝 알고리즘을 사용하여 모델 학습 및 최적화 </br> 
+4. 웹 통합: Django 프로젝트에서 URL을 입력받아 모델을 통해 악성 여부를 실시간으로 판별하는 시스템 구축 </br> 
 
 
 ### 🔍 기능
